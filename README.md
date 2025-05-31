@@ -1,17 +1,14 @@
-# 🌍 Currency Converter
+# Currency Converter 💱
 
-A simple Python-based currency converter using real-time exchange rates as of June 1, 2025.
+A simple Python command-line tool to convert currency amounts between PKR, USD, EUR, and INR using fixed exchange rates.
 
-## 🚀 Features
+## Features
+- Converts currency values between 4 major currencies
+- Easy-to-use CLI interface
+- Beginner-friendly code suitable for learning Python basics
 
-- Convert between USD, EUR, GBP, INR, AED, and PKR
-- Command-line interface for user input
-- Easy-to-read and maintainable code
+## Usage
+Run the script and follow prompts to enter the amount and select currencies:
 
-## 🔧 How to Use
-
-1. Ensure you have Python installed.
-2. Run the script:
-
-   ```bash
-   python currency_converter.py
+```bash
+python main.py
