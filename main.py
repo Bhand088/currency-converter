@@ -26,7 +26,7 @@ def convert(amount, from_curr, to_curr):
 print("Currency Converter")
 print("Currencies:", list(exchange_rates.keys()))
 
-amt = input("Amount: ")
+amt = input("Amount:  ")
 from_c = input("From: ")
 to_c = input("To: ")
 
