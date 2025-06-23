@@ -1,44 +1,36 @@
-# currency_converter.py
+# simple currency converter
 
-# Dictionary of exchange rates relative to PKR
 exchange_rates = {
-    "USD": 282.00,
-    "EUR": 320.56,
-    "GBP": 379.68,
-    "INR": 3.27,
-    "AED": 76.77,
-    "PKR": 1.0  # Base currency
+    "USD": 282,
+    "EUR": 320,
+    "PKR": 1
 }
 
-def convert_currency(amount, from_currency, to_currency):
-    from_currency = from_currency.upper()
-    to_currency = to_currency.upper()
+def convert(amount, from_curr, to_curr):
+    from_curr = from_curr.upper()
+    to_curr = to_curr.upper()
 
-    if from_currency not in exchange_rates or to_currency not in exchange_rates:
-        print("❌ Unsupported currency code.")
-        return None
+    if from_curr not in exchange_rates:
+        print("Currency not supported:", from_curr)
+        return
+    if to_curr not in exchange_rates:
+        print("Currency not supported:", to_curr)
+        return
 
-    # Convert amount to PKR
-    amount_in_pkr = amount * exchange_rates[from_currency]
-    # Convert PKR to target currency
-    converted_amount = amount_in_pkr / exchange_rates[to_currency]
-    return converted_amount
+    amount_in_pkr = amount * exchange_rates[from_curr]
+    result = amount_in_pkr / exchange_rates[to_curr]
 
-def main():
-    print("🌍 Currency Converter (Updated Rates as of June 1, 2025)")
-    print("Supported currencies:", ", ".join(exchange_rates.keys()))
+    print(amount, from_curr, "=", round(result, 2), to_curr)
 
-    try:
-        amount = float(input("Enter amount: "))
-        from_curr = input("From currency code (e.g., USD): ").strip()
-        to_curr = input("To currency code (e.g., PKR): ").strip()
+# main
+print("Currency Converter")
+print("Currencies:", list(exchange_rates.keys()))
 
-        result = convert_currency(amount, from_curr, to_curr)
+amt = input("Amount: ")
+from_c = input("From: ")
+to_c = input("To: ")
 
-        if result is not None:
-            print(f"✅ {amount} {from_curr.upper()} = {round(result, 2)} {to_curr.upper()}")
-    except ValueError:
-        print("❌ Please enter a valid number.")
-
-if __name__ == "__main__":
-    main()
+if amt.isnumeric():
+    convert(float(amt), from_c, to_c)
+else:
+    print("Invalid amount")
